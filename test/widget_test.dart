@@ -1,4 +1,3 @@
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:my_simple_note/main.dart'; // Ensure this path is correct.
 

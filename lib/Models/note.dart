@@ -44,6 +44,7 @@ class Note {
       Color(0xFFF9A825), // Dark yellow
       Color(0xFF6A1B9A), // Dark purple
       Color(0xFF0277BD), // Dark blue
+
     ];
 
     // Determine the color index using the ID (default to 0 if ID is null)

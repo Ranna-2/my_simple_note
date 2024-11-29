@@ -26,10 +26,24 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+    
+    signingConfigs {
+    release {
+        keyAlias MY_KEY_ALIAS
+        keyPassword MY_KEY_PASSWORD
+        storeFile file('release-key.jks')
+        storePassword MY_KEYSTORE_PASSWORD
+    }
+}
+
+
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug
+            // Enables R8 for code shrinking
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
         }
     }
 }
