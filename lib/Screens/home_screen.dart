@@ -54,6 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // Delete a note from the database
+  Future<void> deleteNote(int? id) async {
+    if (id != null) {
+      await DbHelper().delete(id); // Delete note by ID
+      refreshNotes(); // Refresh the notes list
+    } else {
+      log("Note ID is null, cannot delete.");
+    }
+  }
+
   // Show a confirmation dialog before deleting a note
   Future<void> _showDeleteConfirmationDialog(int? id) async {
     return showDialog<void>(
@@ -84,16 +94,6 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       },
     );
-  }
-
-  // Delete a note from the database
-  Future<void> deleteNote(int? id) async {
-    if (id != null) {
-      await DbHelper().delete(id); // Delete note by ID
-      refreshNotes(); // Refresh the notes list
-    } else {
-      log("Note ID is null, cannot delete.");
-    }
   }
 
   // Show a snackbar with a custom message
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: InputDecoration(
                 hintText: "Search notes...",
                 prefixIcon: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.search,
                     color: Colors.white,
                   ),
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 filled: true, // Set the background to be filled with color
                 fillColor: Colors.blue.shade50,
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                   borderSide: BorderSide.none,
                 ),
