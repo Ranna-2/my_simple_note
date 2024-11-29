@@ -21,10 +21,11 @@ android {
 
     defaultConfig {
         applicationId = "com.example.my_simple_note"
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdkVersion 21 // Add or confirm this line
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
     }
     
     signingConfigs {
